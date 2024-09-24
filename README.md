@@ -7,7 +7,8 @@ It just is an exercise for learning programming concepts like object-oriented de
 
 # Branches
 
-Each one must create a branch with the format first_name_surname, for example: john_doe, and work on it.
+Each one must create a branch with the format first_name_surname, for example: john_doe, and work on it, or if you want
+to create your own branch based on your nickname, you can do it!
 The changes you make should be uploaded to your branch, and if you can, make the pull request to the non_prod branch.
 
 # Solution and Testing
