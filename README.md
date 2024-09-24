@@ -32,8 +32,8 @@ To get a local copy up and running, follow these steps:
 
 | Name                       | GitHub Profile                                   | Contact                         |
 |----------------------------|--------------------------------------------------|---------------------------------|
-| **Estefanía Garcés Pérez** | [@egp1020](https://github.com/egp1020)           | john.doe@example.com (Change)   |
-| **Xiomara Betancur Isaza** | [@Xiomara18b](https://github.com/Xiomara18b)     | jane.smith@example.com (Change) |
+| **Estefanía Garcés Pérez** | [@egp1020](https://github.com/egp1020)           | egp1020.developer@gmail.com     |
+| **Xiomara Betancur Isaza** | [@Xiomara18b](https://github.com/Xiomara18b)     | betancurxiomara0@gmail.com      |
 | **Maria F. Atencia Oliva** | [@AtenciaMaria](https://github.com/AtenciaMaria) | mariaf.atencia@udea.edu.co      |
 | **David Morales Velez**    | [@Fadisito1](https://github.com/Fadisito1)       | davidmorafadis@gmail.com        |
 | **Stiven Suárez Marín**    | [@FervKa](https://github.com/FervKa)             | ferbohi@outlook.com             |
