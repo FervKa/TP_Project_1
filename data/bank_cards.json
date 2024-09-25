@@ -68,5 +68,40 @@
     "Issuer": "american_express",
     "Expiry_Date": "03/25",
     "cvv": "373"
+  },
+  {
+    "Name": "Ernest Reichel",
+    "Credit_Card_Number": "4396080303178368",
+    "Issuer": "visa",
+    "Expiry_Date": "04/25",
+    "cvv": "334"
+  },
+  {
+    "Name": "Roxanne Mills II",
+    "Credit_Card_Number": "4546442311896085",
+    "Issuer": "visa",
+    "Expiry_Date": "02/29",
+    "cvv": "359"
+  },
+  {
+    "Name": "Vincent Kozey",
+    "Credit_Card_Number": "4096195087483611",
+    "Issuer": "visa",
+    "Expiry_Date": "06/28",
+    "cvv": "306"
+  },
+  {
+    "Name": "Jan Kihn",
+    "Credit_Card_Number": "4776460146006663",
+    "Issuer": "visa",
+    "Expiry_Date": "05/27",
+    "cvv": "309"
+  },
+  {
+    "Name": "Dora Borer",
+    "Credit_Card_Number": "4750960927729037",
+    "Issuer": "visa",
+    "Expiry_Date": "04/28",
+    "cvv": "186"
   }
 ]
