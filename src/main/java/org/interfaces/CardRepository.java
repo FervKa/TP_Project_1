@@ -2,13 +2,14 @@ package org.interfaces;
 
 import org.records.Card;
 import java.util.Date;
+import java.util.List;
 
 public interface CardRepository {
 Card findOne(long cardNumber);
 
-list<Card> find(Date expirateDate);
+List<Card> find(Date expirateDate);
 
-list<Card> find(String bank);
+List<Card> find(String bank);
 
 void add(Card card);
 }
