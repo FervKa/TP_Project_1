@@ -38,7 +38,7 @@ public class CardsManager {
                 cardArray[0].trim(),
                 cardArray[1].trim(),
                 cardArray[2].trim(),
-                LocalDate(cardArray[3].trim()).ofPattern(),
+                new LocalDate(cardArray[3].split("/")),
                 cardArray[4].trim(),
                 cardArray[5].trim(),
                 cardArray[6].trim(),
