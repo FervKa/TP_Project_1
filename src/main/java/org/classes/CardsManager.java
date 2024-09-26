@@ -34,11 +34,12 @@ public class CardsManager {
 
     private Card buildCards(String line) {
         String[] cardArray = line.split(",");
+        var dataDate = cardArray[3].split("/");
         return new Card(
                 cardArray[0].trim(),
                 cardArray[1].trim(),
                 cardArray[2].trim(),
-                new LocalDate(cardArray[3].split("/")),
+                /*new LocalDate(dataDate[0], dataDate[1]),*/ // Need to refactor the date.
                 cardArray[4].trim(),
                 cardArray[5].trim(),
                 cardArray[6].trim(),
