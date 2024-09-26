@@ -1,5 +1,6 @@
 package org.classes;
 
+import javax.smartcardio.Card;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -7,8 +8,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+import java.util.logging.SimpleFormatter;
 
 public class CardsManager {
     private List<Card> cards = null;
@@ -32,12 +34,11 @@ public class CardsManager {
 
     private Card buildCards(String line) {
         String[] cardArray = line.split(",");
-        var dataDate = cardArray[3].split("/");
         return new Card(
                 cardArray[0].trim(),
                 cardArray[1].trim(),
                 cardArray[2].trim(),
-                /*new LocalDate(dataDate[0], dataDate[1]),*/ // Need to refactor the date.
+                new LocalDate(cardArray[3].split("/")),
                 cardArray[4].trim(),
                 cardArray[5].trim(),
                 cardArray[6].trim(),
