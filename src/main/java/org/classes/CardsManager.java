@@ -1,5 +1,6 @@
 package org.classes;
 
+import javax.smartcardio.Card;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -7,8 +8,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+import java.util.logging.SimpleFormatter;
 
 public class CardsManager {
     private List<Card> cards = null;
