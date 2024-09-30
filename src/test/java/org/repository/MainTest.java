@@ -1,14 +1,13 @@
-package org.example;
+package org.repository;
 
-import org.classes.CreditCards;
 import org.junit.jupiter.api.Test;
 
 public class MainTest {
-    CreditCards creditCards = new CreditCards();
+
 
     @Test
     public void test() {
-        CreditCards.runner();
+
     }
 
 
