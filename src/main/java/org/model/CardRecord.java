@@ -5,7 +5,7 @@ public record CardRecord(
         String name,
         String lastName,
         long cardNumber,
-        String issuer,
+        String issurer,
         YearMonth expiryDate,
         Integer cvv,
         CardTypeRecord cardTypeRecord,

@@ -36,7 +36,7 @@ public class CardRepositoryTest {
     }
     @Test
     public void test_find_by_bank() {
-        String bankName = "bank";
+        String bankName = "Bancolombia";
         List<CardRecord> cards = cardRepository.find(bankName);
         for (CardRecord card : cards) {
             assertEquals(bankName, card.bank());
