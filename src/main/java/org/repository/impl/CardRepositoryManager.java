@@ -24,19 +24,14 @@ public class CardRepositoryManager implements CardRepository {
     private List<CardRecord> readCards() {
         Path filePath = Paths.get("data/bank_cards.txt");
         try (BufferedReader reader = Files.newBufferedReader(filePath)) {
-            return reader.lines().map( this::buildCards ).toList();
+            return new ArrayList<>(reader.lines().map( this::buildCards ).toList());
         }catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
     public CardRecord findOne(long cardNumber) {
-        for (CardRecord card : cards) {
-            if (card.cardNumber() == cardNumber) {
-                return card;
-            }
-        }
-        return null;
+        return cards.stream().filter(p -> p.cardNumber() == cardNumber).findFirst().orElse(null);
     }
 
     @Override
@@ -67,26 +62,16 @@ public class CardRepositoryManager implements CardRepository {
 
     private CardRecord buildCards(String line) {
         String[] cardArray = line.split(",");
-        String name = cardArray[0].trim();
-        String lastName = cardArray[1].trim();
-        long cardNumber = Long.parseLong(cardArray[2].trim());
-        String issuer = cardArray[3].trim();
-
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/yy");
-        YearMonth expiryDate = YearMonth.parse(cardArray[4].trim(), formatter);
-
-        Integer cvv = Integer.parseInt(cardArray[5].trim());
-        CardTypeRecord cardTypeRecord = new CardTypeRecord(cardArray[6].trim());
-        String bank = cardArray[7].trim();
         return new CardRecord(
-            name,
-            lastName,
-            cardNumber,
-            issuer,
-            expiryDate,
-            cvv,
-            cardTypeRecord,
-            bank
+            cardArray[0].trim(),
+            cardArray[1].trim(),
+            Long.parseLong(cardArray[2].trim()),
+            cardArray[3].trim(),
+            YearMonth.parse(cardArray[4].trim(), formatter),
+            Integer.parseInt(cardArray[5].trim()),
+            new CardTypeRecord(cardArray[6].trim()),
+            cardArray[7].trim()
         );
     }
 
