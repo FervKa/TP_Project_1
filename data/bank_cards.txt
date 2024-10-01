@@ -1,15 +1,15 @@
-Winifred, Donnelly, 5132344882847009, mastercard, 08/27, 922, debit, bank
-Ramiro, Torp, 5458255461414431, mastercard, 12/25, 763, credit, bank
-Mr. Franklin, Wyman, 5542412519140348, mastercard, 07/26, 397, credit, bank
-Samuel, Prosacco, 5222850923759285, mastercard, 10/28, 551, credit, bank
-Irma, Smitham, 5227829145835789, mastercard, 01/26, 737, credit, bank
-Miguel, Schaefer, 374829715891586, american_express, 04/25, 481, credit, bank
-Kristie, Rippin, 373498211044040, american_express, 11/29, 246, credit, bank
-Ricky Bailey, DVM, 349626100054917, american_express, 06/26, 913, debit, bank
-Roman, Parisian, 376567104765841, american_express, 09/28, 139, credit, bank
-Rose, Thiel, 376413412445679, american_express, 03/25, 373, debit, bank
-Ernest, Reichel, 4396080303178368, visa, 04/25, 334, credit, bank
-Roxanne Mills, II, 4546442311896085, visa, 02/29, 359, credit, bank
-Vincent, Kozey, 4096195087483611, visa, 06/28, 306, credit, bank
-Jan, Kihn, 4776460146006663, visa, 05/27, 309, credit, bank
-Dora, Borer, 4750960927729037, visa, 04/28, 186, credit, bank
+Winifred, Donnelly, 5132344882847009, mastercard, 08/27, 922, debit, Bancolombia
+Ramiro, Torp, 5458255461414431, mastercard, 12/25, 763, credit, BBVA
+Mr. Franklin, Wyman, 5542412519140348, mastercard, 07/26, 397, credit, Scotiabank
+Samuel, Prosacco, 5222850923759285, mastercard, 10/28, 551, credit, Lulo
+Irma, Smitham, 5227829145835789, mastercard, 01/26, 737, credit, Lulo
+Miguel, Schaefer, 374829715891586, american_express, 04/25, 481, credit, Lulo
+Kristie, Rippin, 373498211044040, american_express, 11/29, 246, credit, BBVA
+Ricky Bailey, DVM, 349626100054917, american_express, 06/26, 913, debit, Lulo
+Roman, Parisian, 376567104765841, american_express, 09/28, 139, credit, Bancolombia
+Rose, Thiel, 376413412445679, american_express, 03/25, 373, debit, BBVA
+Ernest, Reichel, 4396080303178368, visa, 04/25, 334, credit, Scotiabank
+Roxanne Mills, II, 4546442311896085, visa, 02/29, 359, credit, Scotiabank
+Vincent, Kozey, 4096195087483611, visa, 06/28, 306, credit, Bancolombia
+Jan, Kihn, 4776460146006663, visa, 05/27, 309, credit, BBVA
+Dora, Borer, 4750960927729037, visa, 04/28, 186, credit, Bancolombia
