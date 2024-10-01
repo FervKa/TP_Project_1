@@ -9,14 +9,16 @@ import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.model.CardRecord;
 import org.model.CardTypeRecord;
 import org.repository.CardRepository;
 
 public class CardRepositoryImpl implements CardRepository {
-    protected static final Logger logger = LogManager.getLogger(CardRepositoryImpl.class);
+    protected static final Logger logger = LoggerFactory.getLogger(CardRepositoryImpl.class);
     private List<CardRecord> cards = null;
 
     public CardRepositoryImpl() {
@@ -33,39 +35,49 @@ public class CardRepositoryImpl implements CardRepository {
     }
 
     public CardRecord findOne(long cardNumber) {
-        CardRecord result = cards.stream().filter(p -> p.cardNumber() == cardNumber).findFirst().orElse(null);
-        logger.info("Card number found: " + cardNumber);
+        CardRecord result = cards.stream()
+                .filter(p -> p.cardNumber() == cardNumber)
+                .findFirst()
+                .orElse(null);
+        if (result == null) {
+            logger.warn("Card not found: {}", cardNumber);
+        } else {
+            logger.info("Card number found: {}", cardNumber);
+        }
         return result;
 
     }
 
     @Override
     public List<CardRecord> find(YearMonth expiryDate){
-        List<CardRecord> result = new ArrayList<>();
-        for (CardRecord card : cards) {
-            if (card.expiryDate().equals(expiryDate)) {
-                result.add(card);
-            }
+        List<CardRecord> result = cards.stream()
+                .filter(p -> p.expiryDate().equals(expiryDate))
+                .toList();
+        if (result.isEmpty()) {
+            logger.warn("Expiry date does not match any item in the file: {}", expiryDate);
+        } else {
+            logger.info("Found {} cards with expiry date filter.", result.size());
         }
-        logger.info("Found " + result.size() + " cards with expiry date filter.");
         return result;
     }
 
     @Override
     public List<CardRecord> find(String bank){
-        List<CardRecord> result = new ArrayList<>();
-        for (CardRecord card : cards) {
-            if (card.bank().equals(bank)) {
-                result.add(card);
-            }
+        List<CardRecord> result = cards.stream()
+                .filter(p -> p.bank().equals(bank))
+                .toList();
+        if (result.isEmpty()) {
+            logger.warn("Bank does not match any item in the file: {}", bank);
+        } else {
+            logger.info("Found {} cards with bank filter.", result.size());
         }
-        logger.info("Found " + result.size() + " cards with bank filter.");
         return result;
     }
 
-    public void add(CardRecord card){
+    public CardRecord add(CardRecord card){
         cards.add(card);
-        logger.info("Added card: " + card.cardNumber());
+        logger.info("Added card: {}", card.cardNumber());
+        return card;
     }
 
     private CardRecord buildCards(String line) {
