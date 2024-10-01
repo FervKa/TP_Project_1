@@ -9,34 +9,34 @@ import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.model.CardRecord;
 import org.model.CardTypeRecord;
 import org.repository.CardRepository;
 
-public class CardRepositoryManager implements CardRepository {
+public class CardRepositoryImpl implements CardRepository {
+    protected static final Logger logger = LogManager.getLogger(CardRepositoryImpl.class);
     private List<CardRecord> cards = null;
 
-    public CardRepositoryManager() {
+    public CardRepositoryImpl() {
         cards = readCards();
     }
 
     private List<CardRecord> readCards() {
         Path filePath = Paths.get("data/bank_cards.txt");
         try (BufferedReader reader = Files.newBufferedReader(filePath)) {
-            return reader.lines().map( this::buildCards ).toList();
+            return new ArrayList<>(reader.lines().map( this::buildCards ).toList());
         }catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
     public CardRecord findOne(long cardNumber) {
-        for (CardRecord card : cards) {
-            if (card.cardNumber() == cardNumber) {
-                return card;
-            }
-        }
-        return null;
+        CardRecord result = cards.stream().filter(p -> p.cardNumber() == cardNumber).findFirst().orElse(null);
+        logger.info("Card number found: " + cardNumber);
+        return result;
+
     }
 
     @Override
@@ -47,6 +47,7 @@ public class CardRepositoryManager implements CardRepository {
                 result.add(card);
             }
         }
+        logger.info("Found " + result.size() + " cards with expiry date filter.");
         return result;
     }
 
@@ -58,11 +59,13 @@ public class CardRepositoryManager implements CardRepository {
                 result.add(card);
             }
         }
+        logger.info("Found " + result.size() + " cards with bank filter.");
         return result;
     }
 
     public void add(CardRecord card){
         cards.add(card);
+        logger.info("Added card: " + card.cardNumber());
     }
 
     private CardRecord buildCards(String line) {
