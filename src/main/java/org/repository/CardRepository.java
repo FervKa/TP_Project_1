@@ -8,5 +8,5 @@ public interface CardRepository {
     CardRecord findOne(long cardNumber);
     List<CardRecord> find(YearMonth expiryDate);
     List<CardRecord> find(String bank);
-    void add(CardRecord card);
+    CardRecord add(CardRecord card);
 }

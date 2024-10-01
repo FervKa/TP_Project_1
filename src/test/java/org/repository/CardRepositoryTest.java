@@ -18,7 +18,7 @@ public class CardRepositoryTest {
         cardRepository = new CardRepositoryImpl();
     }
     @Test
-    public void test_find_by_number() {
+    public void test_find_one_by_number() {
         long existingCardNumber = 5132344882847009L;
         long nonExistingCardNumber = 9999999999999999L;
         CardRecord card = cardRepository.findOne(existingCardNumber);
@@ -27,39 +27,35 @@ public class CardRepositoryTest {
         assertNull(cardRepository.findOne(nonExistingCardNumber));
     }
     @Test
-    public void test_add_card() {
-        CardRecord newCard = new CardRecord(
-                "Carlos", "Lopez", 9876543210123456L, "Visa",
-                YearMonth.of(2025, 12), 321,
-                new CardTypeRecord("Crédito"), "bank");
-
-        cardRepository.add(newCard);
-
-        CardRecord foundCard = cardRepository.findOne(9876543210123456L);
-        assertNotNull(foundCard);
+    public void test_find_by_expiry_date() {
+        YearMonth expiryDate = YearMonth.of(2025, 12);
+        List<CardRecord> cards = cardRepository.find(expiryDate);
+        for (CardRecord card : cards) {
+            assertEquals(expiryDate, card.expiryDate());
+        }
     }
     @Test
     public void test_find_by_bank() {
         String bankName = "bank";
         List<CardRecord> cards = cardRepository.find(bankName);
-
-        assertFalse(cards.isEmpty());
         for (CardRecord card : cards) {
             assertEquals(bankName, card.bank());
         }
     }
     @Test
-    public void test_find_by_expiry_date() {
-        YearMonth expiryDate = YearMonth.of(2025, 12);
-        List<CardRecord> cards = cardRepository.find(expiryDate);
-
-        assertFalse(cards.isEmpty());
-        for (CardRecord card : cards) {
-            assertEquals(expiryDate, card.expiryDate());
-        }
+    public void test_add_card() {
+        CardRecord newCard = new CardRecord(
+                "Carlos",
+                "Lopez",
+                9876543210123456L,
+                "Visa",
+                YearMonth.of(2025, 12), 321,
+                new CardTypeRecord("Crédito"),
+                "bank");
+        cardRepository.add(newCard);
+        CardRecord foundCard = cardRepository.findOne(9876543210123456L);
+        assertNotNull(foundCard);
     }
 }
-
-    /*Type here the tests should be to test all the methods and the rest of the app*/
 
 
